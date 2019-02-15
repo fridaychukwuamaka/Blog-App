@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Prot</title>
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/css/uikit.css" rel="stylesheet">
+        <link href="/css/w3(css).css" rel="stylesheet">
+        <link href="/css/blog.css" rel="stylesheet">
+        <link href="/css/loginsignup.css" rel="stylesheet">
+        <link href="/css/main.css" rel="stylesheet">
+       </head>
+    <body>
+
+    
+
+    <nav class="uk-navbar-container" uk-sticky="" uk-navbar style="box-shadow: 0 0 7px 0 ; height: 80px;"   >
+   
+    <div class="uk-navbar-left">
+        <a href="/" class="uk-navbar-item uk-logo   "  >Prot</a>
+      <ul class="uk-navbar-nav">
+      <% if(currentUser && currentUser.accType==="admin"){ %>
+        <li class="uk-parent  w3-hide-small w3-hide-medium "><a class="navund" href="/blogs/new">New Post</a></li>
+        <%}%>
+        <li class="uk-parent  w3-hide-small w3-hide-medium "><a class="navund" href="/accomodation">Accomodation</a></li>
+        <li class="uk-parent  w3-hide-small w3-hide-medium "><a class="navund" href="/media">Media</a></li>
+        <li class="uk-parent  w3-hide-small w3-hide-medium "><a class="navund" href="/book">E-books</a></li>
+        <li class="uk-parent  w3-hide-small w3-hide-medium "><a class="navund" href="/market">Market</a></li>
+        </ul>
+    </div>
+    <div class="uk-navbar-right">
+      <ul class="uk-navbar-nav">
+      <% if(!currentUser){ %>
+        <li class="uk-parent w3-hide-small w3-hide-medium "><a  class="navund" href="/register"  >Sign up</a></li>
+        <li class="uk-parent w3-hide-small w3-hide-medium "><a class="navund"  uk-toggle="target: #login" ><span   uk-icon="icon: users"></span></a></li>
+        <% } else { %>
+        <li class="uk-parent w3-hide-small w3-hide-medium "><a class="navund"  href="/profile/<%=currentUser._id%>"  ><%=currentUser.username%></a></li>
+        <li class="uk-parent w3-hide-small w3-hide-medium "><a class="navund"  href="/logout"  >logout</a></li>
+        <%} %>
+        <a class="uk-navbar-toggle w3-hide-large" uk-toggle="target: #sp-nav"  uk-navbar-toggle-icon    href=""></a>
+          </div>
+        </ul>
+    </div>
+    </div>
+    <div class="uk-offcanvas-content ">
+ 
+
+    <!-- This is an anchor toggling the off-canvas -->
+   
+    <!-- This is the off-canvas -->
+    <div id="sp-nav" uk-offcanvas="mode:push; overlay:true">
+      <div class="uk-offcanvas-bar  w3-white  ">
+        <button class="uk-offcanvas-close" type="button" uk-close></button>
+        <i class="fa fa-user-circle-o w3-xxxlarge w3-display-topmiddle" aria-hidden="true">
+        </i>
+        <% if(!currentUser){ %>
+        <div class="uk-parent "><a href="" class="w3-text-black"  uk-toggle="target: #sign-up" >Sign up</a></div>
+        <div class="uk-parent "><a href="" class="w3-text-black" uk-toggle="target: #login" >login</a></div>
+        <% } else { %>
+        <div class="uk-parent"><a class="w3-text-black"  href="/profile/<%=currentUser._id%>"  ><%=currentUser.username%></a></div>
+        <% if(currentUser && currentUser.accType==="admin"){ %>
+        <div class="uk-parent  "><a class="w3-text-black" href="/blogs/new">New Post</a></div>
+        <%}%>
+        <div class="uk-parent "><a class="w3-text-black"  href="/logout"  >logout</a></div>
+        <%} %>
+        
+      </div>
+  </div>
+</div>
+</nav>
+        <!-- login modal content-->
+        <div id="login" uk-modal>
+       <div class="uk-modal-dialog" >
+       <button class="uk-modal-close-default" type="button" uk-close></button>
+           <div class="uk-modal-header">
+           <h3 class="uk-modal-title  " >Login</h3>
+           </div>
+           <div class="uk-modal-body">
+          <a class="uk-button uk-button-default" href="/login">Login With your Email</a>
+          <a class="uk-button uk-button-default" href="#">Login With Facebook</a>
+          <a class="uk-button uk-button-default" href="#">Login With Google</a>
+              </div>
+              </div>
+              </div>
+       </div>
+
+       <!--sign up modal content-->
+        <div id="sign-up" uk-modal>
+       <div class="uk-modal-dialog" >
+       <button class="uk-modal-close-default" type="button" uk-close></button>
+           <div class="uk-modal-header">
+           <h3 class="uk-modal-title  " >Sign Up</h3>
+           </div>
+           <div class="uk-modal-body">
+           <form action="/sign" method="POST" >
+              <div class="uk-margin">
+              <label for=""class="uk-form-label" > <strong class="strong" >Email</strong></label>
+              <input type="email"
+                class="uk-form-controls uk-input" name="email" id="" aria-describedby="helpId" placeholder="Username@gmail.com" required >
+              </div>
+
+              <div class="uk-margin">
+              <label for=""class="uk-form-label" > <strong class="strong" >Username</strong></label>
+              <input type="text"
+                class="uk-form-controls uk-input" name="username" id="" aria-describedby="helpId" placeholder="janedoe1234" required message="fjdjfj" >
+              </div>
+
+              <div class="uk-margin">
+              <label for=""class="uk-form-label" ><strong class="strong" >Password</strong></label>
+              <input type="password"
+                class="uk-form-controls uk-input" name="password" id="" aria-describedby="helpId" placeholder="Password" required >
+              </div>
+              <div class="uk-margin">
+              <label for=""class="uk-form-label" ><strong class="strong" >Comfirm Password</strong></label>
+              <input type="password"
+                class="uk-form-controls uk-input" name="password2" id="" aria-describedby="helpId" placeholder="Password" required >
+              </div>
+              <div class="uk-margin uk-text-right ">
+              <button  class=" uk-button uk-button-primary "  >Submit</button>
+              </div>
+              </form>
+              </div>
+              </div>
+              </div>
+       </div>
+
+    <div class="container" > 
+ 
+  <%if(success && success.length > 0){%>
+  <div uk-alert class="uk-alert-success mt-3 " >
+    <a class="uk-alert-close" uk-close></a>
+    <p><%=success%></p>
+  </div>
+  <%}%>
+
+  <%if(err && err.length > 0){%>
+  <div uk-alert class="uk-alert-danger mt-3 " >
+    <a class="uk-alert-close" uk-close></a>
+    <p><%=err%></p>
+  </div>
+  <%}%>
+
+
+ 

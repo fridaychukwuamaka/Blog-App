@@ -1,0 +1,36 @@
+<% include ../partials/header%>
+<div class="login-box w3-card">
+
+			
+
+
+
+<h1 class="w3-text-white"> LOGIN</h1>
+<div class="mb-3 uk-text-center"  >
+<span   uk-icon="icon: user; ratio: 3"></span>  
+</div>
+
+<form action="/login" method="POST" >
+<label   for="">Username</label>
+<div class="uk-inline">
+    <span class="uk-form-icon uk-form-icon-flip pb-4" uk-icon="icon: lock"></span>
+<input type="text" name="username" placeholder="Username" required title="eg. example@mail.com"  >
+</div>
+
+<label> Password</label>
+<div class="uk-inline">
+    <span class="uk-form-icon uk-form-icon-flip pb-4" uk-icon="icon: lock"></span>
+<input type="Password" name="password" placeholder="Password" class="uk-input" required title="5 to 10 characters">
+</div>
+
+<button class="w3-btn  w3-border w3-border   dark-green w3-hover-black w3-hover-border-white "  style="width: 100%">
+Login
+</button>
+
+
+
+</form>
+<a href=""  ><p  class="pt-2" > Forget password? </p></a>
+
+</div>
+<% include ../partials/footer%>

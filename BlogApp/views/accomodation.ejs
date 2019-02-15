@@ -1,0 +1,24 @@
+<% include partials/header%>
+<div class="row mt-5 " >
+    <div class="row" uk-scrollspy=" target: > div; cls:uk-animation-fade; delay:700; repeat:true" >
+    <%accomodation.forEach(function(accomodation){%>
+    <div class="col-md-6 col-lg-4 mb-5 ">
+    <div class="uk-card uk-card-default">
+    <div class="uk-card-media-top">
+      <img src="<%=accomodation.image1%>" alt="<%=accomodation.image%> Image">
+    </div>
+    <div class="uk-card-body">
+<a href="accomodation/<%=accomodation._id%> " class="uk-card-title"  ><%=accomodation.name%></a>
+    <small class="text-muted uk-align-right "><%= accomodation.created.toLocaleString()%></small>
+    </div>
+  </div>
+    </div>
+<%})%>
+    </div>
+</div>
+
+
+
+<% include partials/footer%>
+
+

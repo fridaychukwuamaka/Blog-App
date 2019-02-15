@@ -1,0 +1,24 @@
+<% include partials/header%>
+<div class="row mt-5 mb-5 " style="box-shadow:0 0 3px 0 black !important; " >
+<div class="col-sm-4 " style="padding:0px" >
+   <img src="/pictures/strawberry-2960533.jpg" alt="image of " class="" > 
+</div>   
+<div class="col-sm-8 container mb-2 " >
+<h3>Engineering Mathematics</h3>
+<p>                   46738 Downloads   English</p>
+<p>by John Bird</p> 
+
+<div class="uk-inline  uk-position-bottom-right mr-2 " >
+<a  href="" class="uk-button uk-button-primary uk-button-small" >Download</a>
+</div>
+</div>  
+</div>
+<%book.forEach(function(book){%> 
+<div class=" mb-4 " style="box-shadow:0 0 3px 0 black !important; " > 
+    <div class="container pt-1 pb-1" >  
+    <p>     <h3><a href=""><%=book.title%></a></h3> 46738 downloads by <%=book.maker%> <p class="uk-text-right"  ><a  href="" class="uk-button uk-button-primary uk-button-small " >Download</a></p>  </p>
+    </div>
+</div>  
+<%})%> 
+
+<% include partials/footer%>

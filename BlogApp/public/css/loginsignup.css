@@ -1,0 +1,87 @@
+input[type="text"],input[type="password"]{
+	outline:none;
+    border:none;
+    border-bottom: 2px solid;
+    border-radius: 0px;
+}
+textarea.form-control{
+    outline:none;
+    border:none;
+    border-bottom: 2px solid;
+    border-radius: 0px;
+}
+select.form-control{
+    outline:none;
+    border:none;
+    border-bottom: 2px solid;
+    border-radius: 0px;
+}
+.login-box{
+	width:320px;
+	background:black;
+    color:white;
+    margin: 40px auto;
+opacity:.8;
+box-sizing: border-box;
+padding:70px 35px;
+}
+h1{
+	margin: 0;
+	padding:0 0 30px;
+	text-align:center;
+	font-size:22px;
+}	
+.login-box p{
+	margin:0;
+	padding:0;
+}
+.login-box input{
+	width:100%;
+	margin-bottom: 20px;
+}
+.login-box input[type="text"],input[type="password"]{
+	background:transparent;
+	outline:none;
+	border:none;
+	border-bottom: 1px solid white;
+	height: 40px;
+	color:white;
+	width:100%  !important;
+}
+
+label div.uk-inline{
+	width:100%
+}
+
+.login-box input[type="submit"]{
+	background-color:green;
+	color:white;
+	outline:none;
+	border:none;
+	height:40px;
+	font-size:27;
+	font-weight: bold;
+}
+	.login-box input[type="submit"]:hover{
+		cursor:pointer;
+		background-color:red;
+		color:black;
+	}
+	.login-box a{
+		color:white;
+		font-family:tahoma;
+		padding:0;
+		margin:0;
+		text-decoration:none;
+	}
+			.login-box a:hover{
+				color:blue;
+				text-decoration:underline;
+			}
+			
+			.dark-green:hover{
+				background-color: transparent;
+				border: solid 2px green;
+				color: green;
+			}
+				

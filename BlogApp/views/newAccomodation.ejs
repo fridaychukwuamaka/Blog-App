@@ -1,0 +1,90 @@
+<% include partials/header%>
+<div class="blog-header" >
+<h3 class="center" >Create new Accomodation</h3>
+<br>
+<form action="/accomodation" method="POST" >
+<div class="uk-margin">
+<label for="" class="uk-form-label" > <strong class="strong" >Name</strong></label>
+<input type="text"
+  class="uk-form-controls uk-input" name="accomodation[name]" id="" aria-describedby="helpId" >
+</div>
+
+
+<div class="uk-margin">
+<label for="" class="uk-form-label" > <strong class="strong" >Location</strong></label>
+<input type="text"
+  class="uk-form-controls uk-input" name="accomodation[location]" id="" aria-describedby="helpId" >
+</div>
+
+<div class="uk-margin">
+<label for="" class="uk-form-label" ><strong class="strong" >First Image</strong></label>
+<input type="text"
+  class="uk-form-controls uk-input" name="accomodation[image1]" id="" aria-describedby="helpId" >
+</div>
+
+<div class="uk-margin">
+<label for="" class="uk-form-label" ><strong class="strong" >Second Image</strong></label>
+<input type="text"
+  class="uk-form-controls uk-input" name="accomodation[image2]" id="" aria-describedby="helpId" >
+</div>
+
+<div class="uk-margin">
+<label for="" class="uk-form-label" ><strong class="strong" >Third Image</strong></label>
+<input type="text"
+  class="uk-form-controls uk-input" name="accomodation[image3]" id="" aria-describedby="helpId" >
+</div>
+
+<div class="uk-margin">
+<label for="" class="uk-form-label" ><strong class="strong" >Fourth Image</strong></label>
+<input type="text"
+  class="uk-form-controls uk-input" name="accomodation[image4]" id="" aria-describedby="helpId" >
+</div>
+
+<div class="uk-margin">
+<label for="" class="uk-form-label" ><strong class="strong" >Fifth Image</strong></label>
+<input type="text"
+  class="uk-form-controls uk-input" name="accomodation[image5]" id="" aria-describedby="helpId" >
+</div>
+
+
+<div class="uk-margin">
+<label for="" class="uk-form-label" ><strong class="strong" >Price</strong></label>
+  <input type="text" 
+  class="uk-form-controls uk-input" name="accomodation[price]" >
+</div>
+
+<div class="uk-margin">
+<label for="" class="uk-form-label" ><strong class="strong" >Space</strong></label>
+  <input type="number" 
+  class="uk-form-controls uk-input" name="accomodation[space]" value="space">
+</div>
+
+<div class="uk-margin">
+<label for=""  class="uk-form-label"> <strong class="strong" >Description</strong></label>
+<textarea rows="10"cols="" class="uk-form-controls uk-textarea" name="accomodation[description]" > </textarea>
+</div>
+<button  class="uk-button uk-button-primary" style="width:100%;" >Submit</button>
+</form>
+</div>
+
+
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item ">
+      <img class="d-block w-100" src="/pictures/piza-3010062.jpg" alt="First slide">
+    </div>
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="/pictures/hero.jpg" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="/pictures/strawberry-2960533.jpg" alt="Third slide">
+    </div>
+  </div>
+</div>
+
+<div class="shadow-none p-3 mb-5 bg-light rounded">No shadow</div>
+<div class="shadow-sm p-3 mb-5 bg-white rounded">Small shadow</div>
+<div class="shadow p-3 mb-5 bg-white rounded">Regular shadow</div>
+<div class="shadow-lg p-3 mb-5 bg-white rounded">Larger shadow</div>
+
+<% include partials/footer%>

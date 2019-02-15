@@ -1,0 +1,93 @@
+div.blog-header{
+    margin-top: 30px;
+    padding: 20px 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+    max-width:400px;
+    margin:30px auto;
+}
+
+h2.blog-h1{
+    text-align: center;
+}
+
+/*footer*/
+.blog-footer {
+    padding: 2.5rem 0;
+    color: #999;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-top: .05rem solid #e5e5e5;
+  }
+  .blog-footer p:last-child {
+    margin-bottom: 0;
+  }
+  .btn-sp{
+    border-top-right-radius: 0; 
+    border-bottom-right-radius: 0; 
+    border-right: 0;
+  }
+.center{
+  text-align: center;
+}
+.uk-navbar-nav li a{
+  text-transform: initial;
+}
+div.uk-modal-dialog {
+  max-width: 500px !important ;
+}
+
+div.divider{
+  border: 2px #39f solid;
+  border-left: none;
+  border-right: none;
+}
+.my-blue{
+  background-color: #39f;
+}
+.my-text-blue{
+  color: #39f !important;
+}
+.sp-no-margin{
+  margin: 0px;
+}
+.sp-no-margin-btm{
+  margin-bottom: 0px;
+}
+.sp-no-padding-btm{
+  padding-bottom: 0px !important ;
+}
+
+
+
+
+.comment-text{
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+div textarea.comment-text-area{
+  border: 2px #39f solid;
+  border-radius: 3px;
+}
+textarea.my-shadow{
+box-shadow:0 0 7px 0 black !important;
+}
+
+hr.hr{
+  border-top: 1px solid #39f;
+}
+
+div input[type="text"].input-text{
+  border: 2px #39f solid;
+  border-radius: 3px;
+  max-width: 260px;
+}
+input[type="text"].input-text{
+box-shadow:0 0 7px 0 black !important;
+}
+
+.uk-subnav-pill > .uk-active  {
+  background-color: #1e87f0 !important ;
+  color: #fff !important;
+}

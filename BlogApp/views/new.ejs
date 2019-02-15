@@ -1,0 +1,58 @@
+<% include partials/header%>
+<div class="blog-header" >
+<h3 class="center" >Make A New Blog Post</h3>
+<br>
+<form action="/blogs" method="POST" >
+<div class="uk-margin">
+<label for="" class="uk-form-label" > <strong class="strong" >Title</strong></label>
+<input type="text"
+  class="uk-form-controls uk-input" name="blog[title]" id="" aria-describedby="helpId" >
+</div>
+
+<div class="uk-margin">
+<label for="" class="uk-form-label" ><strong class="strong" >Image</strong></label>
+<input type="text"
+  class="uk-form-controls uk-input" name="blog[image]" id="" aria-describedby="helpId" >
+</div>
+
+
+<div class="uk-margin">
+<label for="" class="uk-form-label" ><strong class="strong" >Category</strong></label>
+  <select name="blog[related]" class="uk-form-controls uk-select" >
+<option  value="Sport">Sport</option>
+<option value="Music">Music</option>
+<option value="World">World</option>
+<option value="Education">Education</option>
+<option value="Entertainment">Entertainment</option>
+</select>
+</div>
+
+<div class="uk-margin">
+<label for=""  class="uk-form-label"> <strong class="strong" >Blog Content</strong></label>
+<textarea rows="10"cols="" class="uk-form-controls uk-textarea" name="blog[body]" > </textarea>
+</div>
+<button  class="uk-button uk-button-primary" style="width:100%;" >Submit</button>
+</form>
+</div>
+
+
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item ">
+      <img class="d-block w-100" src="/pictures/piza-3010062.jpg" alt="First slide">
+    </div>
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="/pictures/hero.jpg" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="/pictures/strawberry-2960533.jpg" alt="Third slide">
+    </div>
+  </div>
+</div>
+
+<div class="shadow-none p-3 mb-5 bg-light rounded">No shadow</div>
+<div class="shadow-sm p-3 mb-5 bg-white rounded">Small shadow</div>
+<div class="shadow p-3 mb-5 bg-white rounded">Regular shadow</div>
+<div class="shadow-lg p-3 mb-5 bg-white rounded">Larger shadow</div>
+
+<% include partials/footer%>

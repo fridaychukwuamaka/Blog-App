@@ -1,0 +1,31 @@
+<% include ../partials/header%>
+<div class="login-box w3-card">
+			
+<i class="  mt-2 uk-position-top-center fa fa-user-circle w3-xxxlarge justify-content-center"></i>
+
+
+<h1 class="w3-text-white"> Sign Up Here</h1>
+<form action="/register" method="POST" >
+<label   for="">Name</label>
+<input type="text" name="name" placeholder="Jane Doe" required title="eg. Jane Doe" class="uk-input" >
+
+<label   for="">Username</label>
+<input type="text" name="username" placeholder="Username" required title="eg. JaneDoe" class="uk-input" >
+
+<label   for="">Email</label>
+<input type="email" name="email" placeholder="example@mail.com" required title="eg. example@mail.com" class="uk-input" >
+
+<label> Password</label>
+<input type="Password" name="password" placeholder="Password"  required title="5 to 10 characters">
+<label>Confirm Password</label>
+<input type="Password" name="password2" placeholder="Password"  required title="5 to 10 characters">
+
+<button class="w3-btn  w3-border w3-border   dark-green w3-hover-black w3-hover-border-white "  style="width: 100%">
+Sign Up
+</button>
+
+
+
+</form>
+
+              <% include ../partials/footer%>

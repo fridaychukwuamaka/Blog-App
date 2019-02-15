@@ -1,0 +1,32 @@
+<% include partials/header%>
+
+<div class="blog-header" >
+<h2 class="blog-h1" >Edit <%=blog.title%></h2>
+<form action="/blogs/<%= blog._id%>?_method=PUT" method="POST" >
+<div class="form-group">
+<label for=""> <strong class="strong" >Title</strong></label>
+<input type="text"
+  class="form-control" name="blog[title]" id="" aria-describedby="helpId" value="<%=blog.title%>">
+</div>
+
+<div class="form-group">
+<label for=""><strong class="strong" >Image</strong></label>
+<input type="text"
+  class="form-control" name="blog[image]" id="" aria-describedby="helpId" value="<%=blog.image%>">
+</div>
+<div class="form-group">
+
+<label for=""> <strong class="strong" >Blog Content</strong></label>
+<textarea rows="" cols="" class="form-control" name="blog[body]" > <%=blog.body%> </textarea>
+</div>
+<div class="form-group">
+<button class="btn btn-primary float form-control " > Submit</button>
+</div>
+</form>
+</div>
+
+
+
+
+
+<% include partials/footer%>

@@ -1,0 +1,30 @@
+<%include partials/header%>
+<div class="mt-5" >
+<div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+<div class="col-md-6 px-0">
+  <h1 class="display-5 font-italic">Title of a longer featured blog post</h1>
+  <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.</p>
+  <p class="lead mb-0"><a href="" class="text-white font-weight-bold">Continue reading...</a></p>
+</div>
+</div>   
+</div>
+
+
+<div class="row" uk-scrollspy=" target: > div; cls:uk-animation-fade; delay:700; repeat:true" >
+   <%blogs.forEach(function(blog){ %> 
+   <div class="col-md-6 col-lg-4 mb-4">
+   <div class="uk-card uk-card-default">
+   <div class="uk-card-media-top">
+     <img src="<%=blog.image%>" alt="<%=blog.title%> Image">
+   </div>
+   <div class="uk-card-body">
+   <h3 class="uk-card-title"  ><%=blog.title%></h3>
+   <p class="card-text" ><a class="uk-link-text" href="/blogs/<%= blog._id %>" ><%- blog.body.substring(0, 70) %> ...</a></p>
+  <small class="text-muted"><span   uk-icon="icon: calendar"></span> <%= blog.created.toDateString()%></small>
+   </div>
+ </div>
+   </div>
+   <%})%>
+   </div>
+
+    <%include partials/footer%>

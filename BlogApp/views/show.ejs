@@ -1,0 +1,146 @@
+<% include partials/header%>
+<div class="row mt-5 ">
+  <div class="col-md-8 ">
+  <article class="uk-article m-4 ">
+  <h2 class="uk-article-title" style=" font-family: Playfair Display, Georgia, Times New Roman, serif; margin-bottom: 0;" ><a class="uk-link-reset" href=""><%=blog.title%></a></h2>
+  <img src="<%= blog.image%>" alt="<%=blog.title%> Image" style="width:100%; height:auto" >
+  <p class="uk-article-meta">Written by <a href="#" class="my-text-blue" ><%=blog.author.username%></a> on <%= blog.created.toDateString()%> Posted in <a href="#" class="my-text-blue" ><%=blog.related%></a> </p>
+  <p class=""><%-blog.body%></p>
+  <div class="uk-text-right" >
+  <a class="uk-button uk-button-text uk-text-right  " href="#"><%=blog.comments.length%> <span   uk-icon="icon: comment"></span>  </a>  
+  </div>       
+           <%if(currentUser && blog.author.id.equals(currentUser._id)){%>     
+           <div class="btn-group  " >
+          <form action="/blogs/<%=blog._id%>?_method=DELETE" method="POST" >
+           <button  class="btn  btn-sp btn-outline-secondary">Delete</button>
+           </form> 
+           <!-- Launch modal -->
+           <a value="Edit" href="/blogs/<%=blog._id%>/edit"  class="btn btn-outline-secondary" data-toggle="modal" data-target="#exampleModalLive" >Edit</a>
+           </div> 
+           <%}%>
+           </article>
+        
+
+        <!-- modal content-->
+        <div id="exampleModalLive" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLiveLabel" aria-hidden="true">
+       <div class="modal-dialog" role="document">
+         <div class="modal-content">
+           <div class="modal-header">
+             <h5 class="modal-title" id="exampleModalLiveLabel">Edit <%=blog.title%></h5>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+             </button>
+           </div>
+           <div class="modal-body">
+           <form action="/blogs/<%= blog._id%>?_method=PUT" method="POST" >
+              <div class="form-group">
+              <label for=""> <strong class="strong" >Title</strong></label>
+              <input type="text"
+                class="form-control" name="blog[title]" id="" aria-describedby="helpId" value="<%=blog.title%>">
+              </div>
+
+              <div class="form-group">
+              <label for=""><strong class="strong" >Image</strong></label>
+              <input type="text"
+                class="form-control" name="blog[image]" id="" aria-describedby="helpId" value="<%=blog.image%>">
+              </div>
+              
+              <div class="form-group">
+                <label for=""><strong class="strong"  >Category</strong></label>          
+                <select name="blog[related]" class="form-control" >
+                <option value="<%=blog.related%>"><%=blog.related%></option>
+                <option value="Sport">Sport</option>
+                <option value="Music">Music</option>
+                <option value="World">World</option>
+                <option value="Education">Education</option>
+                <option value="Entertainment">Entertainment</option>
+                </select>
+                </div>
+                
+              <div class="form-group">
+              <label for=""> <strong class="strong" >Blog Content</strong></label>
+              <textarea rows="" cols="" class="form-control" name="blog[body]" > <%=blog.body%> </textarea>
+              </div>
+              <button  class="btn btn-primary "  >Submit</button>
+              </form>
+              </div>
+           <div class="modal-footer">
+             <button type="button" class="btn btn-secondary " data-dismiss="modal" >Close</button>
+           </div>
+         </div>
+       </div>
+
+       </div>
+
+
+<ul uk-accordion class=" ml-4  " >
+  <li>
+    <a class="uk-accordion-title my-text-blue w3-text-blue">COMMENT:</a>
+    <div class="uk-accordion-content">
+    <div>
+  <form action="/blogs/<%=blog._id%>/comment" method="POST" >
+  <div class="form-group" >
+    <input type="text" name="username" value="" class=" my-shadow form-control input-text " placeholder="Name" > 
+  </div>
+
+  <div class="form-group" >
+    <textarea rows="5" cols="" name="comment" class=" my-shadow form-control comment-text-area " ></textarea>
+  </div>
+  <div class="uk-text-right" >
+  <button class=" uk-button uk-button-primary uk-button-medium ">SUBMIT</button>
+  </div>
+  </form>
+  </div>
+  <br>
+
+<article class="uk-comment">
+  <header class="uk-comment-header">
+    <img class="uk-comment-avatar" src="-" alt="">
+    <h4 class="uk-comment-title"></h4>
+    <ul class="uk-comment-meta uk-subnav"></ul>
+  </header>
+<div class="uk-comment-body"></div>
+</article>
+
+<hr class="hr sp-no-margin "  >
+<%blog.comments.forEach(function(blog){%>
+<div class="comment-text sp-no-padding-btm sp-no-padding-top  ">
+  <p class=" ml-3 my-text-blue " ><%=blog.username%>        <span class="pl-5" ><%=blog.created.toDateString()%>     </span> </p>
+  <p class=" container  " >"<%=blog.text%>"</p>
+  <hr class="hr sp-no-margin"  >
+</div>
+<%})%>
+    </div>
+  </li>
+</ul>
+
+
+</div>
+
+
+
+     
+     
+
+     
+           <!-- /.blog-post -->
+           <aside class="col-md-4 blog-sidebar">
+           <div class="p-3 mb-3 bg-light rounded">
+             <h4 class="font-italic">About</h4>
+             <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+           </div>
+ 
+           <div class="p-3">
+             <h4 class="font-italic">Related Blog</h4>
+             <ol class="list-unstyled mb-0">
+             <%found.forEach(function(found){%>
+               <li><a href="/blogs/<%=found._id%>" class="w3-text-blue" ><%=found.title%></a></li>
+               <%})%>      
+             </ol>
+           </div>
+         </aside><!-- /.blog-sidebar -->
+       </div>
+
+
+
+<% include partials/footer%>
