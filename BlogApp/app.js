@@ -1,3 +1,4 @@
+@@ -1,122 +0,0 @@
 var express = require("express"),
 path = require('path'),
 mongoose= require("mongoose"),
@@ -118,5 +119,4 @@ function checkProfileOwnership(req, res ,next){
                 res.redirect("back")
             }
     }
-
 

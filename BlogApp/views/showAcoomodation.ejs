@@ -1,0 +1,204 @@
+@@ -1,203 +0,0 @@
+<% include partials/header%>
+<div class="row  mt-5" >
+    <div class="col-lg-4  " >
+    
+    <dl class="uk-description-list">
+    <dt><h3>Other Houses In <%=found.name%>:</h3></dt>
+    <%search.forEach(function(search){%>
+    <dd><img src="<%=search.image1%>" alt=""> </dd>
+    <%})%>
+  </dl>
+
+
+
+
+
+    </div>
+    <div class="col-lg-8" >
+    <article class="uk-article">
+    <div class="uk-position-relative uk-visible-toggle uk-light" uk-slideshow="animation: slide; autoplay:true; autoplay-interval:6000; pause-on-hover:false">
+
+    <ul class="uk-slideshow-items">
+        <li>
+            <img src="<%=found.image1%>" alt="" uk-cover>
+            <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+                <p class="uk-margin-remove">First Image of this House</p>
+            </div>
+        </li>
+        <li>
+            <img src="<%=found.image2%>" alt="" uk-cover>
+            <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+                <p class="uk-margin-remove">Second Image of this House</p>
+            </div>
+        </li>
+        <li>
+        <img src="<%=found.image3%>" alt="" uk-cover>
+        <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+            <p class="uk-margin-remove">Third Image of this House</p>
+        </div>
+    </li>
+        <li>
+            <img src="<%=found.image4%>" alt="" uk-cover>
+            <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+                <p class="uk-margin-remove">Fourth Image of this House</p>
+            </div>
+        </li>
+        <li>
+        <img src="<%=found.image5%>" alt="" uk-cover>
+        <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+            <p class="uk-margin-remove">Fifth Image of this House</p>
+        </div>
+    </li>
+    </ul>
+
+    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+
+</div>
+
+
+        <p class="uk-article-meta uk-text-right ">Written by <a href="#"><%=found.author.username%></a> on <%=found.created.toDateString()%>.</p>
+        <dl class="uk-description-list">
+          <dt><h3>Description:</h3></dt>
+          <dd><%=found.description%> For more information call <%=found.number%> </dd>
+        </dl>
+        <p><h3>Price:</h3> <%=found.price%>/year. </p>
+        <p><h3>Avaliabilty:</h3> <%=found.space%> Rooms.</p>
+        <p><h3>Location:</h3> <%=found.location%>.</p>
+            <div class="uk-text-right" >
+                <a class="uk-button uk-button-text" href="#"><%=found.comments.length%><span   uk-icon="icon: comment"></span></a>
+            </div>
+    </article>
+
+    <%if(currentUser && found.author.id.equals(currentUser._id)){%>     
+    <div class="btn-group  " >
+    <form action="/accomodation/<%=found._id%>?_method=DELETE" method="POST" >
+    <button  class="btn  btn-sp btn-outline-secondary">Delete</button>
+    </form> 
+    <!-- Launch modal -->
+    <a value="Edit" href="/accomodation/<%=found._id%>/edit"  class="btn btn-outline-secondary" data-toggle="modal" data-target="#exampleModalLive" >Edit</a>
+    </div> 
+    <%}%>
+
+    <ul uk-accordion class="   " >
+    <li>
+      <a class="uk-accordion-title my-text-blue w3-text-blue">COMMENT:</a>
+      <div class="uk-accordion-content">
+      <div>
+    <form action="/accomodation/<%=found._id%>/comment" method="POST" >
+    <div class="form-group" >
+      <input type="text" name="username" value="" class=" my-shadow form-control input-text " placeholder="Name" > 
+    </div>
+  
+    <div class="form-group" >
+      <textarea rows="5" cols="" name="comment" class=" my-shadow form-control comment-text-area " ></textarea>
+    </div>
+    <div class="uk-text-right" >
+    <button class=" uk-button uk-button-primary uk-button-medium ">SUBMIT</button>
+    </div>
+    </form>
+    </div>
+    <br>
+  
+  <hr class="hr sp-no-margin "  >
+  <%found.comments.forEach(function(found){%>
+  <div class="comment-text sp-no-padding-btm sp-no-padding-top  ">
+    <p class=" ml-3 my-text-blue " ><%=found.username%>        <span class="pl-5" ><%=found.created.toDateString()%>     </span> </p>
+    <p class=" container  " >"<%=found.text%>"</p>
+    <hr class="hr sp-no-margin"  >
+  </div>
+  <%})%>
+      </div>
+    </li>
+  </ul>
+
+    </div>
+</div>
+
+
+
+
+<!-- modal content-->
+<div id="exampleModalLive" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLiveLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 class="modal-title" id="exampleModalLiveLabel">Edit this Post%></h3>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+    <form action="/accomodation/<%= found._id%>?_method=PUT" method="POST" >
+       <div class="form-group">
+       <label for=""> <strong class="strong" >Name</strong></label>
+       <input type="text"
+         class="form-control" name="accom[name]" id="" aria-describedby="helpId" value="<%=found.name%>">
+       </div>
+
+       <label for=""> <strong class="strong" >location</strong></label>
+       <input type="text"
+         class="form-control" name="accom[location]" id="" aria-describedby="helpId" value="<%=found.location%>">
+       </div>
+
+       <div class="uk-margin">
+<label for="" class="uk-form-label" ><strong class="strong" >First Image</strong></label>
+<input type="text"
+  class="uk-form-controls uk-input" name="accom[image1]" id="" aria-describedby="helpId"  value="<%=found.image1%>" >
+</div>
+
+<div class="uk-margin">
+<label for="" class="uk-form-label" ><strong class="strong" >Second Image</strong></label>
+<input type="text"
+  class="uk-form-controls uk-input" name="accom[image2]" id="" aria-describedby="helpId"  value="<%=found.image2%>" >
+</div>
+
+<div class="uk-margin">
+<label for="" class="uk-form-label" ><strong class="strong" >Third Image</strong></label>
+<input type="text"
+  class="uk-form-controls uk-input" name="accom[image3]" id="" aria-describedby="helpId"  value="<%=found.image3%>" >
+</div>
+
+<div class="uk-margin">
+<label for="" class="uk-form-label" ><strong class="strong" >Fourth Image</strong></label>
+<input type="text"
+  class="uk-form-controls uk-input" name="accom[image4]" id="" aria-describedby="helpId"  value="<%=found.image4%>" >
+</div>
+
+<div class="uk-margin">
+<label for="" class="uk-form-label" ><strong class="strong" >Fifth Image</strong></label>
+<input type="text"
+  class="uk-form-controls uk-input" name="accom[image5]" id="" aria-describedby="helpId"  value="<%=found.image5%>" >
+</div>
+       
+       <div class="form-group">
+         <label for=""><strong class="strong"  >Price</strong></label>          
+         <input type="text" 
+         name="accom[price]" value="<%=found.price%>" class="uk-input" >
+         </div>
+
+         <div class="form-group">
+         <label for=""><strong class="strong"  >Space</strong></label>          
+         <input type="text" 
+         name="accom[space]" value="<%=found.space%>" class="uk-input" >
+         </div>
+         
+       <div class="form-group">
+       <label for=""> <strong class="strong" >description</strong></label>
+       <textarea rows="6" cols="" class="form-control" name="accom[description]" > <%=found.description%> </textarea>
+       </div>
+       <button  class="uk-button uk-button-primary "  >Submit</button>
+       </form>
+       </div>
+    <div class="modal-footer">
+      <button type="button" class="uk-button uk-button-secondary " data-dismiss="modal" >Close</button>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+<% include partials/footer%>

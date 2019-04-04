@@ -1,29 +1,35 @@
 <% include partials/header%>
 <div class="blog-header" >
-<h3 class="center" >Create A New Book</h3>
+<h3 class="center" >Make A New Blog Post</h3>
 <br>
-<form action="/book" method="POST" >
+<form action="/blogs" method="POST" >
 <div class="uk-margin">
 <label for="" class="uk-form-label" > <strong class="strong" >Title</strong></label>
 <input type="text"
-  class="uk-form-controls uk-input" name="book[title]" id="" aria-describedby="helpId" >
+  class="uk-form-controls uk-input" name="blog[title]" id="" aria-describedby="helpId" >
 </div>
 
 <div class="uk-margin">
-<label for="" class="uk-form-label" ><strong class="strong" >Author</strong></label>
+<label for="" class="uk-form-label" ><strong class="strong" >Image</strong></label>
 <input type="text"
-  class="uk-form-controls uk-input" name="book[maker]" id="" aria-describedby="helpId" >
+  class="uk-form-controls uk-input" name="blog[image]" id="" aria-describedby="helpId" >
+</div>
+
+
+<div class="uk-margin">
+<label for="" class="uk-form-label" ><strong class="strong" >Category</strong></label>
+  <select name="blog[related]" class="uk-form-controls uk-select" >
+<option  value="Sport">Sport</option>
+<option value="Music">Music</option>
+<option value="World">World</option>
+<option value="Education">Education</option>
+<option value="Entertainment">Entertainment</option>
+</select>
 </div>
 
 <div class="uk-margin">
-<label for="" class="uk-form-label" ><strong class="strong" >Cover</strong></label>
-<input type="text"
-  class="uk-form-controls uk-input" name="book[cover]" id="" aria-describedby="helpId" >
-</div>
-
-<div class="uk-margin">
-<label for=""  class="uk-form-label"> <strong class="strong" >Book</strong></label>
-<input type="text" class="uk-form-controls uk-input" name="book[book]" >
+<label for=""  class="uk-form-label"> <strong class="strong" >Blog Content</strong></label>
+<textarea rows="10"cols="" class="uk-form-controls uk-textarea" name="blog[body]" > </textarea>
 </div>
 <button  class="uk-button uk-button-primary" style="width:100%;" >Submit</button>
 </form>

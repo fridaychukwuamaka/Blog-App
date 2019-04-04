@@ -1,3 +1,4 @@
+@@ -1,30 +0,0 @@
 var mongoose = require("mongoose")
 
 var blogSchema = new mongoose.Schema({
